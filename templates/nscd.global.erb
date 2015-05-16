@@ -1,0 +1,15 @@
+<% if !@logfile.empty? then -%>
+logfile			<%= @logfile %>
+<% end -%>
+threads			<%= @threads %>
+<% if !@max_threads.empty? then -%>
+max-threads		<%= @max_threads %>
+<% end -%>
+server-user		<%= @server_user %>
+<% if !@stat_user.empty? then -%>
+stat-user		<%= @stat_user %>
+<% end -%>
+debug-level		<%= @debug_level %>
+reload-count		<%= @reload_count %>
+paranoia		<%= @paranoia %>
+restart-interval	<%= @restart_interval %>

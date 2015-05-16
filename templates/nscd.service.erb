@@ -1,0 +1,11 @@
+enable-cache		<%= @svc_name %>		<%= @enable_cache %>
+positive-time-to-live	<%= @svc_name %>		<%= @positive_ttl %>
+negative-time-to-live	<%= @svc_name %>		<%= @negative_ttl %>
+suggested-size		<%= @svc_name %>		<%= @suggested_size %>
+check-files		<%= @svc_name %>		<%= @check_files %>
+persistent		<%= @svc_name %>		<%= @persistent %>
+shared			<%= @svc_name %>		<%= @shared %>
+max-db-size		<%= @svc_name %>		<%= @max_db_size %>
+<% if ['passwd','group'].include?(@svc_name) then -%>
+auto-propagate		<%= @svc_name %>		<%= @auto_propogate %>
+<% end -%>

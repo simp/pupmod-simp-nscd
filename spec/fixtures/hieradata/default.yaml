@@ -1,0 +1,12 @@
+---
+ldap::base_dn : "ou=foo,dc=bar,dc=baz"
+
+ldap::bind_dn : "cn=hostAuth,ou=Hosts,%{hiera('ldap::base_dn')}"
+
+ldap::uri :
+  - 'ldap://server1.bar.baz'
+  - 'ldap://server2.bar.baz'
+
+client_nets :
+  - 1.2.3.4
+  - 5.6.7.8
