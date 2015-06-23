@@ -1,0 +1,12 @@
+---
+fixtures:
+  symlinks:
+    augeasproviders_core: "#{source_dir}/../augeasproviders_core"
+    augeasproviders_grub: "#{source_dir}/../augeasproviders_grub"
+    nscd: "#{source_dir}"
+    auditd: "#{source_dir}/../auditd"
+    common: "#{source_dir}/../common"
+    concat: "#{source_dir}/../concat"
+    openldap: "#{source_dir}/../openldap"
+    pki: "#{source_dir}/../pki"
+    stdlib: "#{source_dir}/../stdlib"

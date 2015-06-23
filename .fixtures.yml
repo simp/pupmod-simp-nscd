@@ -1,12 +1,13 @@
 ---
 fixtures:
+  repositories:
+    augeasproviders_core: "git://github.com/simp/augeasproviders_core"
+    augeasproviders_grub: "git://github.com/simp/augeasproviders_grub"
+    auditd: "git://github.com/simp/pupmod-simp-auditd"
+    common: "git://github.com/simp/pupmod-simp-common"
+    concat: "git://github.com/simp/pupmod-simp-concat"
+    openldap: "git://github.com/simp/pupmod-simp-openldap"
+    pki: "git://github.com/simp/pupmod-simp-pki"
+    stdlib: "git://github.com/simp/puppetlabs-stdlib"
   symlinks:
-    augeasproviders_core: "#{source_dir}/../augeasproviders_core"
-    augeasproviders_grub: "#{source_dir}/../augeasproviders_grub"
     nscd: "#{source_dir}"
-    auditd: "#{source_dir}/../auditd"
-    common: "#{source_dir}/../common"
-    concat: "#{source_dir}/../concat"
-    openldap: "#{source_dir}/../openldap"
-    pki: "#{source_dir}/../pki"
-    stdlib: "#{source_dir}/../stdlib"

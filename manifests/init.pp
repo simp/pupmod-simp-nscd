@@ -80,14 +80,14 @@ class nscd (
   $nscd_start_command = "/usr/bin/test -e /var/run/nscd/nscd.pid && ! $l_service_command nscd status && /bin/rm -f /var/run/nscd/nscd.pid; $l_service_command nscd restart && $l_service_command nscd reload"
 
   file { '/etc/nscd.conf':
-    owner     => 'root',
-    group     => 'root',
-    mode      => '0640',
-    require   => [
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0640',
+    require => [
       Concat_build['nscd'],
       Package['nscd']
     ],
-    audit     => 'content'
+    audit   => 'content'
   }
 
   group { 'nscd':
@@ -107,11 +107,11 @@ class nscd (
     restart   => $nscd_start_command,
     status    => '/bin/ps -C nscd > /dev/null',
     subscribe => $use_ldap ? {
-      true      => [
+      true    => [
                     File[$::openldap::pam::ldap_conf],
                     File['/etc/nscd.conf']
       ],
-      default   => File['/etc/nscd.conf']
+      default => File['/etc/nscd.conf']
     }
   }
 
