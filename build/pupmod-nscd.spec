@@ -1,13 +1,14 @@
 Summary: NSCD Puppet Module
 Name: pupmod-nscd
 Version: 5.0.0
-Release: 4
+Release: 5
 License: Apache License, Version 2.0
 Group: Applications/System
 Source: %{name}-%{version}-%{release}.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: pupmod-common >= 4.1.0-6
-Requires: pupmod-concat >= 4.0.0-0
+Requires: pupmod-simplib >= 1.0.0-0
+Requires: pupmod-simpcat >= 4.0.0-0
 Requires: pupmod-openldap >= 4.1.0-3
 Requires: puppet >= 3.3.0
 Buildarch: noarch
@@ -56,6 +57,9 @@ fi
 # Post uninstall stuff
 
 %changelog
+* Mon Nov 09 2015 Chris Tessmer <chris.tessmer@onypoint.com> - 5.0.0-5
+- migration to simplib and simpcat (lib/ only)
+
 * Thu Feb 19 2015 Trevor Vaughan <tvaughan@onyxpoint.com> - 5.0.0-4
 - Migrated to the new 'simp' environment.
 
