@@ -43,6 +43,19 @@ class nscd (
   $restart_interval = '1200',
   $enable_caches = ['passwd','group','services']
 ){
+
+  validate_bool($use_ldap)
+  if !empty($logfile) { validate_absolute_path($logfile) }
+  validate_integer($threads)
+  if !empty($max_threads) { validate_integer($max_threads) }
+  validate_string($server_user)
+  if !empty($stat_user) { validate_string($stat_user) }
+  validate_integer($debug_level)
+  validate_integer($reload_count)
+  validate_array_member($paranoia,['yes','no'])
+  validate_integer($restart_interval)
+  validate_array_member($enable_caches,['passwd','group','services','hosts'])
+
   if $use_ldap {
     include '::openldap::pam'
   }
@@ -77,7 +90,7 @@ class nscd (
     $l_service_command = '/sbin/service'
   }
 
-  $nscd_start_command = "/usr/bin/test -e /var/run/nscd/nscd.pid && ! $l_service_command nscd status && /bin/rm -f /var/run/nscd/nscd.pid; $l_service_command nscd restart && $l_service_command nscd reload"
+  $nscd_start_command = "/usr/bin/test -e /var/run/nscd/nscd.pid && ! ${l_service_command} nscd status && /bin/rm -f /var/run/nscd/nscd.pid; ${l_service_command} nscd restart && ${l_service_command} nscd reload"
 
   file { '/etc/nscd.conf':
     owner   => 'root',
@@ -100,19 +113,21 @@ class nscd (
     ensure => 'latest'
   }
 
+  $_subscribe = $use_ldap ? {
+    true    => [
+                  File[$::openldap::pam::ldap_conf],
+                  File['/etc/nscd.conf']
+    ],
+    default => File['/etc/nscd.conf']
+  }
+
   service { 'nscd':
     ensure    => 'running',
     enable    => true,
     start     => $nscd_start_command,
     restart   => $nscd_start_command,
     status    => '/bin/ps -C nscd > /dev/null',
-    subscribe => $use_ldap ? {
-      true    => [
-                    File[$::openldap::pam::ldap_conf],
-                    File['/etc/nscd.conf']
-      ],
-      default => File['/etc/nscd.conf']
-    }
+    subscribe => $_subscribe
   }
 
   user { 'nscd':
@@ -125,16 +140,4 @@ class nscd (
     membership => 'inclusive',
     shell      => '/sbin/nologin'
   }
-
-  validate_bool($use_ldap)
-  if !empty($logfile) { validate_absolute_path($logfile) }
-  validate_integer($threads)
-  if !empty($max_threads) { validate_integer($max_threads) }
-  validate_string($server_user)
-  if !empty($stat_user) { validate_string($stat_user) }
-  validate_integer($debug_level)
-  validate_integer($reload_count)
-  validate_array_member($paranoia,['yes','no'])
-  validate_integer($restart_interval)
-  validate_array_member($enable_caches,['passwd','group','services','hosts'])
 }

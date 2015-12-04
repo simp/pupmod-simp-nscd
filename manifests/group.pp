@@ -20,12 +20,6 @@ class nscd::group (
 ) {
   include 'nscd'
 
-  $svc_name = 'group'
-
-  concat_fragment { "nscd+conf.$svc_name":
-    content => template('nscd/nscd.service.erb')
-  }
-
   validate_array_member($enable_cache,['yes','no'])
   validate_integer($positive_ttl)
   validate_integer($negative_ttl)
@@ -35,4 +29,9 @@ class nscd::group (
   validate_array_member($shared,['yes','no'])
   validate_integer($max_db_size)
   validate_array_member($auto_propogate,['yes','no'])
+
+  $svc_name = 'group'
+  concat_fragment { "nscd+conf.${svc_name}":
+    content => template('nscd/nscd.service.erb')
+  }
 }

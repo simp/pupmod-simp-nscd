@@ -1,28 +1,28 @@
 require 'spec_helper'
 
 describe 'nscd::services' do
-  let(:facts) {{
-    :fqdn => 'test.host.net',
-    :hardwaremodel => 'x86_64',
-    :operatingsystem => 'RedHat',
-    :lsbmajdistrelease => '7',
-    :apache_version => '2.4',
-    :grub_version => '0.9',
-    :uid_min => '500'
-  }}
+  context 'supported operating systems' do
+    on_supported_os.each do |os, facts|
+      context "on #{os}" do
+        let(:facts) do
+          facts
+        end
 
-  it { should create_class('nscd') }
-  it { should create_class('nscd::services') }
+        it { is_expected.to create_class('nscd') }
+        it { is_expected.to create_class('nscd::services') }
 
-  context 'base' do
-    it { should compile.with_all_deps }
-    it { should create_concat_fragment('nscd+conf.services').with({
-        :content => /enable-cache\s+services\s+yes/
-      })
-    }
-    it { should create_concat_fragment('nscd+conf.services').without({
-        :content => /auto-propagate/
-      })
-    }
+        context 'base' do
+          it { is_expected.to compile.with_all_deps }
+          it { is_expected.to create_concat_fragment('nscd+conf.services').with({
+              :content => /enable-cache\s+services\s+yes/
+            })
+          }
+          it { is_expected.to create_concat_fragment('nscd+conf.services').without({
+              :content => /auto-propagate/
+            })
+          }
+        end
+      end
+    end
   end
 end

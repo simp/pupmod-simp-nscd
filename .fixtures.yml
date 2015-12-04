@@ -9,6 +9,7 @@ fixtures:
     simpcat: "git://github.com/simp/pupmod-simp-concat"
     openldap: "git://github.com/simp/pupmod-simp-openldap"
     pki: "git://github.com/simp/pupmod-simp-pki"
+    sssd: "git://github.com/simp/pupmod-simp-sssd"
     stdlib: "git://github.com/simp/puppetlabs-stdlib"
   symlinks:
     nscd: "#{source_dir}"

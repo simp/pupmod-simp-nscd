@@ -19,12 +19,6 @@ class nscd::services (
 ) {
   include 'nscd'
 
-  $svc_name = 'services'
-
-  concat_fragment { "nscd+conf.$svc_name":
-    content => template('nscd/nscd.service.erb')
-  }
-
   validate_array_member($enable_cache,['yes','no'])
   validate_integer($positive_ttl)
   validate_integer($negative_ttl)
@@ -33,4 +27,10 @@ class nscd::services (
   validate_array_member($persistent,['yes','no'])
   validate_array_member($shared,['yes','no'])
   validate_integer($max_db_size)
+
+  $svc_name = 'services'
+
+  concat_fragment { "nscd+conf.${svc_name}":
+    content => template('nscd/nscd.service.erb')
+  }
 }
