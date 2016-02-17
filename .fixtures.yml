@@ -4,7 +4,6 @@ fixtures:
     augeasproviders_core: "git://github.com/simp/augeasproviders_core"
     augeasproviders_grub: "git://github.com/simp/augeasproviders_grub"
     auditd: "git://github.com/simp/pupmod-simp-auditd"
-    common: "git://github.com/simp/pupmod-simp-common"
     simplib: "git://github.com/simp/pupmod-simp-simplib"
     simpcat: "git://github.com/simp/pupmod-simp-concat"
     openldap: "git://github.com/simp/pupmod-simp-openldap"
