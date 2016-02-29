@@ -1,7 +1,7 @@
 Summary: NSCD Puppet Module
 Name: pupmod-nscd
 Version: 5.0.0
-Release: 6
+Release: 7
 License: Apache License, Version 2.0
 Group: Applications/System
 Source: %{name}-%{version}-%{release}.tar.gz
@@ -12,9 +12,9 @@ Requires: pupmod-openldap >= 4.1.0-3
 Requires: puppet >= 3.3.0
 Buildarch: noarch
 Requires: simp-bootstrap >= 4.2.0
-Obsoletes: pupmod-nscd-test
+Obsoletes: pupmod-nscd-test >= 0.0.1
 
-Prefix: /etc/puppet/environments/simp/modules
+Prefix: %{_sysconfdir}/puppet/environments/simp/modules
 
 %description
 This Puppet module provides the capability to configure NSCD on your system.
@@ -56,6 +56,9 @@ fi
 # Post uninstall stuff
 
 %changelog
+* Mon Feb 29 2015 Trevor Vaughan <tvaughan@onyxpoint.com> - 5.0.0-7
+- Missed one 'lsb*' fact.
+
 * Fri Dec 04 2015 Chris Tessmer <chris.tessmer@onyxpoint.com> - 5.0.0-6
 - Replaced all 'lsb*' facts with their (package-independent)
   'operatingsystem*' counterparts.

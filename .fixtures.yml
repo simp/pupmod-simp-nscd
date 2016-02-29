@@ -10,5 +10,6 @@ fixtures:
     pki: "git://github.com/simp/pupmod-simp-pki"
     sssd: "git://github.com/simp/pupmod-simp-sssd"
     stdlib: "git://github.com/simp/puppetlabs-stdlib"
+    compliance_mapper: "git://github.com/trevor-vaughan/pupmod-compliance"
   symlinks:
     nscd: "#{source_dir}"

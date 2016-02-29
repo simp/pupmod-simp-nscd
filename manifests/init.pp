@@ -83,7 +83,7 @@ class nscd (
     content => template('nscd/nscd.global.erb')
   }
 
-  if ( $::operatingsystem in ['RedHat','CentOS'] ) and ( $::lsbmajdistrelease > '6' ) {
+  if ( $::operatingsystem in ['RedHat','CentOS'] ) and ( $::operatingsystemmajrelease > '6' ) {
     $l_service_command = '/usr/sbin/service'
   }
   else {
