@@ -56,7 +56,7 @@ fi
 # Post uninstall stuff
 
 %changelog
-* Mon Feb 29 2015 Trevor Vaughan <tvaughan@onyxpoint.com> - 5.0.0-7
+* Mon Feb 29 2016 Trevor Vaughan <tvaughan@onyxpoint.com> - 5.0.0-7
 - Missed one 'lsb*' fact.
 
 * Fri Dec 04 2015 Chris Tessmer <chris.tessmer@onyxpoint.com> - 5.0.0-6
