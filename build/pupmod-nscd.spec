@@ -1,7 +1,7 @@
 Summary: NSCD Puppet Module
 Name: pupmod-nscd
-Version: 5.0.0
-Release: 7
+Version: 5.0.1
+Release: 0
 License: Apache License, Version 2.0
 Group: Applications/System
 Source: %{name}-%{version}-%{release}.tar.gz
@@ -56,6 +56,10 @@ fi
 # Post uninstall stuff
 
 %changelog
+* Mon Mar 28 2016 Trevor Vaughan <tvaughan@onyxpoint.com> - 5.0.1-0
+- Fixed a race condition between `service nscd restart` and
+  `service nscd reload`.
+
 * Mon Feb 29 2016 Trevor Vaughan <tvaughan@onyxpoint.com> - 5.0.0-7
 - Missed one 'lsb*' fact.
 

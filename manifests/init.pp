@@ -90,7 +90,7 @@ class nscd (
     $l_service_command = '/sbin/service'
   }
 
-  $nscd_start_command = "/usr/bin/test -e /var/run/nscd/nscd.pid && ! ${l_service_command} nscd status && /bin/rm -f /var/run/nscd/nscd.pid; ${l_service_command} nscd restart && ${l_service_command} nscd reload"
+  $nscd_start_command = "/usr/bin/test -e /var/run/nscd/nscd.pid && ! ${l_service_command} nscd status && /bin/rm -f /var/run/nscd/nscd.pid; ${l_service_command} nscd restart && /bin/sleep 1 && ${l_service_command} nscd reload"
 
   file { '/etc/nscd.conf':
     owner   => 'root',

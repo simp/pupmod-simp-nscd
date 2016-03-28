@@ -1,6 +1,6 @@
 {
   "name":    "simp-nscd",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "author":  "simp",
   "summary": "manages NSCD",
   "license": "Apache-2.0",
@@ -10,19 +10,19 @@
   "tags": [ "simp", "nscd", "ldap", "caching" ],
   "dependencies": [
     {
-      "name": "puppetlabs-stdlib",
+      "name": "puppetlabs/stdlib",
       "version_requirement": ">= 4.0.0"
     },
     {
-      "name": "simp-openldap",
+      "name": "simp/openldap",
       "version_requirement": ">= 4.1.0"
     },
     {
-      "name": "simp-simpcat",
+      "name": "simp/simpcat",
       "version_requirement": ">= 4.0.0"
     },
     {
-      "name": "simp-simplib",
+      "name": "simp/simplib",
       "version_requirement": ">= 1.0.0"
     }
   ],
