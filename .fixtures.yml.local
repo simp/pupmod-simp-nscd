@@ -1,13 +1,14 @@
----
-fixtures:
-  symlinks:
-    augeasproviders_core: "#{source_dir}/../augeasproviders_core"
-    augeasproviders_grub: "#{source_dir}/../augeasproviders_grub"
-    nscd: "#{source_dir}"
-    auditd: "#{source_dir}/../auditd"
-    simplib: "#{source_dir}/../simplib"
-    simpcat: "#{source_dir}/../simpcat"
-    openldap: "#{source_dir}/../openldap"
-    pki: "#{source_dir}/../pki"
-    stdlib: "#{source_dir}/../stdlib"
-    compliance_mapper: "#{source_dir}/../compliance_mapper"
+--- 
+  fixtures: 
+    symlinks: 
+      auditd: "#{source_dir}/../auditd"
+      augeasproviders_core: "#{source_dir}/../augeasproviders_core"
+      augeasproviders_grub: "#{source_dir}/../augeasproviders_grub"
+      compliance_markup: "#{source_dir}/../compliance_markup"
+      nscd: "#{source_dir}"
+      openldap: "#{source_dir}/../openldap"
+      pki: "#{source_dir}/../pki"
+      simpcat: "#{source_dir}/../simpcat"
+      simplib: "#{source_dir}/../simplib"
+      sssd: "#{source_dir}/../sssd"
+      stdlib: "#{source_dir}/../stdlib"

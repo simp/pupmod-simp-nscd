@@ -1,15 +1,21 @@
 ---
 fixtures:
   repositories:
-    augeasproviders_core: "git://github.com/simp/augeasproviders_core"
-    augeasproviders_grub: "git://github.com/simp/augeasproviders_grub"
-    auditd: "git://github.com/simp/pupmod-simp-auditd"
-    simplib: "git://github.com/simp/pupmod-simp-simplib"
-    simpcat: "git://github.com/simp/pupmod-simp-concat"
-    openldap: "git://github.com/simp/pupmod-simp-openldap"
-    pki: "git://github.com/simp/pupmod-simp-pki"
-    sssd: "git://github.com/simp/pupmod-simp-sssd"
-    stdlib: "git://github.com/simp/puppetlabs-stdlib"
-    compliance_mapper: "git://github.com/trevor-vaughan/pupmod-compliance"
+    auditd: "https://github.com/simp/pupmod-simp-auditd"
+    augeasproviders_core:
+      repo: "https://github.com/simp/augeasproviders_core"
+      branch: "simp-master"
+    augeasproviders_grub:
+      repo: "https://github.com/simp/augeasproviders_grub"
+      branch: "simp-master"
+    compliance_markup: "https://github.com/simp/pupmod-simp-compliance_markup"
+    simpcat: "https://github.com/simp/pupmod-simp-simpcat"
+    simplib: "https://github.com/simp/pupmod-simp-simplib"
+    openldap: "https://github.com/simp/pupmod-simp-openldap"
+    pki: "https://github.com/simp/pupmod-simp-pki"
+    sssd: "https://github.com/simp/pupmod-simp-sssd"
+    stdlib:
+      repo: "https://github.com/simp/puppetlabs-stdlib"
+      branch: "simp-master"
   symlinks:
     nscd: "#{source_dir}"
