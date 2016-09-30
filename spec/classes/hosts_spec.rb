@@ -13,11 +13,11 @@ describe 'nscd::hosts' do
 
         context 'base' do
           it { is_expected.to compile.with_all_deps }
-          it { is_expected.to create_concat_fragment('nscd+conf.hosts').with({
+          it { is_expected.to create_simpcat_fragment('nscd+conf.hosts').with({
               :content => /enable-cache\s+hosts\s+yes/
             })
           }
-          it { is_expected.to create_concat_fragment('nscd+conf.hosts').without({
+          it { is_expected.to create_simpcat_fragment('nscd+conf.hosts').without({
               :content => /auto-propagate/
             })
           }

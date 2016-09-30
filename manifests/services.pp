@@ -30,7 +30,7 @@ class nscd::services (
 
   $svc_name = 'services'
 
-  concat_fragment { "nscd+conf.${svc_name}":
+  simpcat_fragment { "nscd+conf.${svc_name}":
     content => template('nscd/nscd.service.erb')
   }
 }

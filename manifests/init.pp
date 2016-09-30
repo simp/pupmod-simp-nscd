@@ -73,13 +73,13 @@ class nscd (
     include '::nscd::services'
   }
 
-  concat_build { 'nscd':
+  simpcat_build { 'nscd':
     order   => ['conf.*'],
     target  => '/etc/nscd.conf',
     require => Package['nscd']
   }
 
-  concat_fragment { 'nscd+conf.global':
+  simpcat_fragment { 'nscd+conf.global':
     content => template('nscd/nscd.global.erb')
   }
 
@@ -97,7 +97,7 @@ class nscd (
     group   => 'root',
     mode    => '0640',
     require => [
-      Concat_build['nscd'],
+      Simpcat_build['nscd'],
       Package['nscd']
     ],
     audit   => 'content'

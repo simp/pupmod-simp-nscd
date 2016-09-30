@@ -13,11 +13,11 @@ describe 'nscd::passwd' do
 
         context 'base' do
           it { is_expected.to compile.with_all_deps }
-          it { is_expected.to create_concat_fragment('nscd+conf.passwd').with({
+          it { is_expected.to create_simpcat_fragment('nscd+conf.passwd').with({
               :content => /enable-cache\s+passwd\s+yes/
             })
           }
-          it { is_expected.to create_concat_fragment('nscd+conf.passwd').with({
+          it { is_expected.to create_simpcat_fragment('nscd+conf.passwd').with({
               :content => /auto-propagate/
             })
           }

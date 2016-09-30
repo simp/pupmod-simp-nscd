@@ -29,7 +29,7 @@ class nscd::hosts(
   validate_integer($max_db_size)
 
   $svc_name = 'hosts'
-  concat_fragment { "nscd+conf.${svc_name}":
+  simpcat_fragment { "nscd+conf.${svc_name}":
     content => template('nscd/nscd.service.erb')
   }
 }

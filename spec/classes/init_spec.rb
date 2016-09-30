@@ -17,7 +17,7 @@ describe 'nscd' do
           it { is_expected.to create_class('nscd::group') }
           it { is_expected.to create_class('nscd::services') }
           it { is_expected.not_to create_class('nscd::hosts') }
-          it { is_expected.to create_concat_fragment('nscd+conf.global').with({ :content => /paranoia\s+no/ }) }
+          it { is_expected.to create_simpcat_fragment('nscd+conf.global').with({ :content => /paranoia\s+no/ }) }
         end
 
         context 'enable_hosts' do

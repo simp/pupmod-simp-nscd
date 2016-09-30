@@ -31,7 +31,7 @@ class nscd::group (
   validate_array_member($auto_propogate,['yes','no'])
 
   $svc_name = 'group'
-  concat_fragment { "nscd+conf.${svc_name}":
+  simpcat_fragment { "nscd+conf.${svc_name}":
     content => template('nscd/nscd.service.erb')
   }
 }
