@@ -1,3 +1,6 @@
+* Wed Nov 16 2016 Liz Nemsick <lnemsick.simp@gmail.com> - 6.0.0-0
+- Updated openldap dependency version
+
 * Fri Sep 30 2016 Trevor Vaughan <tvaughan@onyxpoint.com> - 6.0.0-0
 - Updated to use the version of 'simpcat' that does not conflict with
   'puppetlabs/concat'.
