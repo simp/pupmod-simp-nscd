@@ -1,3 +1,6 @@
+* Fri Nov 18 2016 Chris Tessmer <chris.tessmer@onyxpoint.com> - 6.0.0-0
+- Removed to compliance_markup dependency
+
 * Wed Nov 16 2016 Liz Nemsick <lnemsick.simp@gmail.com> - 6.0.0-0
 - Updated openldap dependency version
 
